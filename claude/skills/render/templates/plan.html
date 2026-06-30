@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><!-- FILL: plan title --></title>
+<style>
+:root{--fg:#1a1a1a;--muted:#6b7280;--bg:#fff;--card:#f7f7f8;--border:#e5e7eb;--accent:#2563eb;--accent-bg:#eff6ff;--ok:#16a34a;--warn:#d97706;--err:#dc2626}
+@media(prefers-color-scheme:dark){:root{--fg:#e7e7e9;--muted:#9ca3af;--bg:#16171a;--card:#1f2125;--border:#2d2f36;--accent:#60a5fa;--accent-bg:#1e293b;--ok:#4ade80;--warn:#fbbf24;--err:#f87171}}
+*{box-sizing:border-box}
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--fg);background:var(--bg);max-width:680px;margin:0 auto;padding:3rem 1.5rem 5rem}
+h1{font-size:1.5rem;margin:0 0 .25rem}
+.meta{color:var(--muted);font-size:.85rem;margin:0 0 2rem}
+h2{font-size:1.05rem;margin:2rem 0 .5rem}
+p{margin:.5rem 0}a{color:var(--accent)}
+code{background:var(--card);padding:.1em .35em;border-radius:4px;font-size:.9em}
+.tldr{background:var(--accent-bg);border-left:3px solid var(--accent);padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin:0 0 1.5rem}
+.steps{counter-reset:step;padding:0}
+.steps details{border:1px solid var(--border);border-radius:8px;padding:.6rem .85rem .6rem 2.6rem;margin:.5rem 0;background:var(--card);position:relative;counter-increment:step}
+.steps details::before{content:counter(step);position:absolute;left:.6rem;top:.55rem;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--accent);color:#fff;font-size:.8rem;display:grid;place-items:center}
+summary{cursor:pointer;font-weight:600;list-style-position:outside}
+summary::marker{color:var(--muted)}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.err{color:var(--err)}
+</style>
+</head>
+<body>
+<h1><!-- FILL: plan title --></h1>
+<p class="meta"><!-- FILL: one-line context / date --></p>
+
+<div class="tldr"><!-- FILL: the goal / outcome in one or two sentences --></div>
+
+<h2>Steps</h2>
+<div class="steps">
+  <!-- FILL: one <details> per step. Summary = step name (front-loaded). Body = detail. -->
+  <details>
+    <summary>First step name</summary>
+    <p>What happens, files touched, why. Keep it short.</p>
+  </details>
+  <details>
+    <summary>Second step name</summary>
+    <p>Detail, collapsed by default — pulled, not pushed.</p>
+  </details>
+</div>
+
+<h2>Verify</h2>
+<p><!-- FILL: how to confirm it worked --></p>
+</body>
+</html>

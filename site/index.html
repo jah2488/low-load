@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Low Load · Claude Code, tuned for tired eyes</title>
+<meta name="description" content="A small bundle that makes Claude Code calmer to use: answer-first replies, a glanceable status bar, dense content moved out of the terminal, and dyslexia-friendly terminal typography. Local only. Pick the pieces you want.">
+<meta property="og:title" content="Low Load · Claude Code, tuned for tired eyes">
+<meta property="og:description" content="Answer-first replies, a glanceable status bar, and dyslexia-friendly terminal typography. Built to cut the reading tax of all-day AI work.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%231e1e22'/%3E%3Crect x='4' y='4.5' width='3' height='7' fill='%23e8b339'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="wordmark" href="#top"><span class="mk">▟</span>Low Load</a>
+  <nav class="nav-links">
+    <a href="#problem">the problem</a>
+    <a href="#compare">before / after</a>
+    <a href="#pieces">what's in it</a>
+    <a href="#theme">terminal theme</a>
+    <a href="#install">install</a>
+    <a class="github-link" href="https://github.com/jah2488/low-load">github</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">claude code, tuned for tired eyes</p>
+
+      <div class="glyph-row" aria-hidden="true">
+        <span class="glyph-cell"><span class="g g-done">✓</span><span class="gl">done</span></span>
+        <span class="glyph-cell"><span class="g g-fail">✗</span><span class="gl">failed</span></span>
+        <span class="glyph-cell"><span class="g g-work">…</span><span class="gl">working</span></span>
+        <span class="glyph-cell"><span class="g g-warn">⚠</span><span class="gl">warning</span></span>
+        <span class="glyph-cell"><span class="g g-block">⛔</span><span class="gl">blocked</span></span>
+        <span class="glyph-cell"><span class="g g-input">?</span><span class="gl">needs you</span></span>
+      </div>
+
+      <h1>Less to read. Less to track. Less to strain.</h1>
+      <p class="subhead">A small bundle that makes Claude Code calmer for all-day use. Answers lead with the point and stay short. State moves into a glanceable bar. The terminal gets typography built for fatigue and dyslexia.</p>
+
+      <div class="terminal install-block">
+        <div class="term-bar"><span class="tl red"></span><span class="tl amber"></span><span class="tl green"></span><span class="term-title">install</span><button class="copy-btn" data-copy="curl -fsSL https://raw.githubusercontent.com/jah2488/low-load/main/install.sh | bash"><span class="copy-label">copy</span></button></div>
+        <div class="term-body">
+          <code class="term-line"><span class="prompt">❯</span>curl -fsSL https://raw.githubusercontent.com/jah2488/low-load/main/install.sh | bash</code>
+        </div>
+      </div>
+      <p class="inspect-line">Piping a script into a shell deserves a look first. <a href="https://github.com/jah2488/low-load/blob/main/install.sh">Read it here.</a></p>
+
+      <ul class="pip-list">
+        <li>Local only. No network calls, no telemetry.</li>
+        <li>Backs up <code>settings.json</code>; never overwrites your hooks.</li>
+        <li>Pick the pieces you want. Take the output style alone and you have most of it.</li>
+      </ul>
+    </div>
+
+    <!-- HERO MOCKUP -->
+    <div class="terminal hero-shot">
+      <div class="term-bar"><span class="tl red"></span><span class="tl amber"></span><span class="tl green"></span><span class="term-title">claude</span><span class="term-spacer"></span></div>
+      <div class="term-body">
+        <code class="term-line"><span class="prompt">❯</span>are the tests passing?</code>
+        <code class="term-line">&nbsp;</code>
+        <code class="term-line"><span class="red">✗</span> <span class="bright">1 failing:</span> <span class="muted">billing webhook retry (timeout)</span></code>
+        <code class="term-line">41 others green.</code>
+        <code class="term-line"><span class="muted">-> more (stack trace / likely cause)</span><span class="cursor live"></span></code>
+        <div class="statusbar">opus 4.8 <span class="sep">·</span> <span class="gold">✦</span> flint:full <span class="sep">·</span> Low Load <span class="sep">·</span> <span class="green">ctx 24%</span> <span class="sep">·</span> main <span class="green">✓</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<div class="section-tinted">
+<section class="section problem reveal" id="problem">
+  <p class="eyebrow">the problem</p>
+  <div class="prose">
+    <p>If you spend hours a day across several AI chats, the cost is not the thinking. It is the reading.</p>
+    <p>Every answer arrives as friendly prose at full terminal width, and you scan all of it to find the one line that matters. Do that a few hundred times a day and you are worn out by an interface, not the work.</p>
+    <p>If you are dyslexic or have ADHD, the tax is higher. Dense paragraphs, low contrast, and a blinking cursor all pull attention you would rather spend on the problem in front of you.</p>
+  </div>
+  <p class="aside">Low Load is not magic. It is a few config files and one output style, packaged so you can pick the parts that help and skip the rest.</p>
+</section>
+</div>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="section reveal" id="compare">
+  <p class="eyebrow">before / after</p>
+  <h2>Same answer. A tenth of the reading.</h2>
+  <p class="lede">The output style is the core change. Claude still has the depth. It just leads with the conclusion and offers the rest, instead of pushing all of it every time.</p>
+
+  <div class="ba-grid">
+    <div>
+      <div class="ba-tag before" aria-hidden="true"><span>●</span> default</div>
+      <div class="terminal">
+        <div class="term-bar"><span class="tl red"></span><span class="tl amber"></span><span class="tl green"></span><span class="term-title">before</span></div>
+        <div class="term-body">
+          <code class="term-line"><span class="muted">Great question! I went ahead and checked the test suite for you. The good news is that almost everything is passing. There is just one test that is currently failing, which is the billing webhook retry test. It looks like it might be related to a timeout. Let me know if you would like me to dig into it further!</span></code>
+        </div>
+      </div>
+      <p class="ba-metric">~60 words. The answer is in there somewhere.</p>
+    </div>
+    <div>
+      <div class="ba-tag after" aria-hidden="true"><span>●</span> low load</div>
+      <div class="terminal">
+        <div class="term-bar"><span class="tl red"></span><span class="tl amber"></span><span class="tl green"></span><span class="term-title">after</span></div>
+        <div class="term-body">
+          <code class="term-line"><span class="red">✗</span> <span class="bright">1 failing:</span> <span class="muted">billing webhook retry (timeout)</span></code>
+          <code class="term-line">41 others green.</code>
+          <code class="term-line"><span class="muted">-> more (stack trace / likely cause)</span></code>
+        </div>
+      </div>
+      <p class="ba-metric">~12 words. Depth one line away.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIECES ============ -->
+<div class="section-tinted">
+<section class="section reveal" id="pieces">
+  <p class="eyebrow">what's in it</p>
+  <h2>Five small changes and one good companion.</h2>
+  <p class="lede">The installer lets you toggle each one. Some need <code>jq</code> or a particular terminal, and it tells you up front what your system supports.</p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="fc-head"><span class="fc-glyph green">✓</span><h3>Output style</h3></div>
+      <p>Answer-first, terse, scannable replies with labeled status glyphs. This is most of the benefit.</p>
+      <span class="fc-tag">core</span>
+    </div>
+    <div class="feature-card">
+      <div class="fc-head"><span class="fc-glyph gold">▦</span><h3>Status line</h3></div>
+      <p>One glanceable bar: model, context %, rate limit, branch. Cost is left off on purpose.</p>
+      <span class="fc-tag">needs jq</span>
+    </div>
+    <div class="feature-card">
+      <div class="fc-head"><span class="fc-glyph blue">▤</span><h3>render skill</h3></div>
+      <p>Moves long plans, comparison tables, and forms out of the terminal onto a clean local page.</p>
+      <span class="fc-tag opt">no deps</span>
+    </div>
+    <div class="feature-card">
+      <div class="fc-head"><span class="fc-glyph cyan">♪</span><h3>Sound cues</h3></div>
+      <p>A soft chime when Claude needs you, another when it finishes. Watch several sessions by ear.</p>
+      <span class="fc-tag">macOS</span>
+    </div>
+    <div class="feature-card">
+      <div class="fc-head"><span class="fc-glyph yellow">Aa</span><h3>Terminal theme</h3></div>
+      <p>Dyslexia-friendly type for Alacritty, Ghostty, or iTerm2. Gentle contrast, generous spacing.</p>
+      <span class="fc-tag">a terminal</span>
+    </div>
+    <div class="feature-card">
+      <div class="fc-head"><span class="fc-glyph gold">✦</span><h3>flint</h3></div>
+      <p>A companion plugin that makes Claude build less and claim less, not just say less. Optional, recommended.</p>
+      <span class="fc-tag opt">optional</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ THEME ============ -->
+<section class="section reveal" id="theme">
+  <p class="eyebrow">the terminal theme</p>
+  <h2>Typography that lowers the reading load.</h2>
+  <p class="lede">Drawn from dyslexia and low-vision research. The same choices this site is built with.</p>
+  <div class="two-col">
+    <ul class="choice-list">
+      <li><span class="ck">✓</span><div><b>A legible mono font</b> at a comfortable size, with generous line spacing so lines stop blending together.</div></li>
+      <li><span class="ck">✓</span><div><b>Gentle contrast.</b> Off-black on warm off-white. No pure black on pure white, which halates and strains tired eyes, while keeping high (~12:1) contrast.</div></li>
+      <li><span class="ck">✓</span><div><b>A steady block cursor.</b> Easy to find, no blink to chase.</div></li>
+      <li><span class="ck">✓</span><div><b>Breathing-room padding,</b> so it is easier to find your place after an interruption.</div></li>
+    </ul>
+    <div class="terminal">
+      <div class="term-bar"><span class="tl red"></span><span class="tl amber"></span><span class="tl green"></span><span class="term-title">low-load theme</span></div>
+      <div class="term-body">
+        <code class="term-line"><span class="prompt">❯</span>git status</code>
+        <code class="term-line"><span class="green">On branch main</span></code>
+        <code class="term-line">Changes not staged for commit:</code>
+        <code class="term-line">  <span class="red">modified:</span>   src/billing/webhook.ts</code>
+        <code class="term-line">  <span class="red">modified:</span>   src/billing/retry.ts</code>
+        <code class="term-line">&nbsp;</code>
+        <code class="term-line"><span class="muted"># warm off-white on off-black, generous leading</span></code>
+        <code class="term-line"><span class="prompt">❯</span><span class="cursor live"></span></code>
+      </div>
+    </div>
+  </div>
+  <p class="aside">A terminal cannot enforce short paragraphs. That part lives in the output style. The theme handles everything your eyes touch: font, spacing, contrast, cursor.</p>
+</section>
+
+<!-- ============ INSTALL ============ -->
+<div class="section-tinted">
+<section class="section reveal" id="install">
+  <p class="eyebrow">install</p>
+  <h2>One command. You choose what it touches.</h2>
+  <p class="lede">The installer is a guided picker, not a take-it-all script. It checks your system, shows what each piece does, and waits for you to toggle before it changes a thing.</p>
+
+  <div class="terminal install-final">
+    <div class="term-bar"><span class="tl red"></span><span class="tl amber"></span><span class="tl green"></span><span class="term-title">install.sh</span><button class="copy-btn" data-copy="curl -fsSL https://raw.githubusercontent.com/jah2488/low-load/main/install.sh | bash"><span class="copy-label">copy</span></button></div>
+    <div class="term-body">
+      <code class="term-line"><span class="prompt">❯</span>curl -fsSL https://raw.githubusercontent.com/jah2488/low-load/main/install.sh | bash</code>
+      <code class="term-line">&nbsp;</code>
+      <code class="menu-line"><span class="bold gold">Choose what to install</span></code>
+      <code class="menu-line"><span class="muted">the output style alone is most of the benefit; the rest is gravy</span></code>
+      <code class="menu-line">&nbsp;</code>
+      <code class="menu-line">  <span class="menu-num">1.</span> <span class="menu-on">[x]</span> <span class="bold">Output style (Low Load)</span></code>
+      <code class="menu-line">  <span class="menu-num">2.</span> <span class="menu-on">[x]</span> <span class="bold">Status line</span></code>
+      <code class="menu-line">  <span class="menu-num">3.</span> <span class="menu-on">[x]</span> <span class="bold">render skill</span></code>
+      <code class="menu-line">  <span class="menu-num">4.</span> <span class="menu-on">[x]</span> <span class="bold">Sound cues</span></code>
+      <code class="menu-line">  <span class="menu-num">5.</span> <span class="menu-on">[x]</span> <span class="bold">Terminal theme</span></code>
+      <code class="menu-line">  <span class="menu-num">6.</span> <span class="menu-on">[x]</span> <span class="bold">flint mode</span> <span class="muted">(recommended companion)</span></code>
+      <code class="menu-line">&nbsp;</code>
+      <code class="menu-line"><span class="gold">toggle a number, [a]ll, [n]one, Enter to install, [q]uit:</span> <span class="cursor live"></span></code>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li><span class="step-num">1</span><div>It verifies what your system can handle (macOS, <code>jq</code>, which terminals you have) and grays out anything it cannot install.</div></li>
+    <li><span class="step-num">2</span><div>You toggle the pieces you want. Sensible defaults are pre-selected.</div></li>
+    <li><span class="step-num">3</span><div>It backs up <code>settings.json</code>, merges only the keys it needs, and appends to your hooks rather than replacing them.</div></li>
+    <li><span class="step-num">4</span><div>Restart Claude Code, and you are on Low Load. Re-run any time to add or change pieces.</div></li>
+  </ol>
+  <p class="aside">No terminal handy, like a CI shell? It installs the recommended defaults and prints exactly what it did. Prefer to do it by hand? Every piece is a plain file. See the <a href="https://github.com/jah2488/low-load#manual-install">manual steps</a>.</p>
+</section>
+</div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="wordmark" href="#top"><span class="mk">▟</span>Low Load</a>
+      <p class="footer-tag">less to read. enjoy the quiet.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/jah2488/low-load">github</a>
+      <a href="https://github.com/jah2488/low-load/blob/main/install.sh">read the installer</a>
+      <a href="https://github.com/jah2488/flint">flint</a>
+      <a href="https://www.jetbrains.com/lp/mono/">JetBrains Mono</a>
+    </div>
+  </div>
+  <p class="footer-note">MIT licensed. Local only, no telemetry. Built by jah2488.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

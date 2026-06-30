@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><!-- FILL: form title --></title>
+<style>
+:root{--fg:#1a1a1a;--muted:#6b7280;--bg:#fff;--card:#f7f7f8;--border:#e5e7eb;--accent:#2563eb;--accent-bg:#eff6ff;--ok:#16a34a}
+@media(prefers-color-scheme:dark){:root{--fg:#e7e7e9;--muted:#9ca3af;--bg:#16171a;--card:#1f2125;--border:#2d2f36;--accent:#60a5fa;--accent-bg:#1e293b;--ok:#4ade80}}
+*{box-sizing:border-box}
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--fg);background:var(--bg);max-width:640px;margin:0 auto;padding:3rem 1.5rem 5rem}
+h1{font-size:1.5rem;margin:0 0 .25rem}
+.meta{color:var(--muted);font-size:.85rem;margin:0 0 1.5rem}
+label{display:block;margin:1.1rem 0 .25rem;font-weight:600;font-size:.92rem}
+.hint{color:var(--muted);font-size:.82rem;font-weight:400}
+input,textarea,select{width:100%;padding:.55rem .7rem;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--border);border-radius:8px}
+textarea{min-height:4rem;resize:vertical}
+button{font:inherit;font-weight:600;padding:.6rem 1.2rem;border:0;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer;margin-top:1.75rem}
+#status{color:var(--ok);font-weight:600;margin-left:.75rem}
+#out{width:100%;margin-top:1rem;font-family:ui-monospace,monospace;font-size:.85rem;display:none}
+</style>
+</head>
+<body>
+<h1><!-- FILL: form title --></h1>
+<p class="meta"><!-- FILL: what this collects and why --></p>
+
+<form id="f">
+  <!-- FILL: fields. Give each a unique name=. Examples below — replace. -->
+  <label>Project name<input name="project_name" type="text"></label>
+  <label>Priority
+    <select name="priority"><option>low</option><option>medium</option><option>high</option></select>
+  </label>
+  <label>Notes <span class="hint">free text</span><textarea name="notes"></textarea></label>
+</form>
+
+<button id="copy">Copy results</button><span id="status"></span>
+<textarea id="out" readonly></textarea>
+
+<script>
+document.getElementById('copy').addEventListener('click', async () => {
+  const data = {};
+  new FormData(document.getElementById('f')).forEach((v, k) => { data[k] = v; });
+  const json = JSON.stringify(data, null, 2);
+  document.getElementById('out').value = json;
+  document.getElementById('out').style.display = 'block';
+  try {
+    await navigator.clipboard.writeText(json);
+    document.getElementById('status').textContent = '✓ copied — paste back into the chat';
+  } catch (e) {
+    document.getElementById('status').textContent = 'select the box below and copy manually';
+  }
+});
+</script>
+</body>
+</html>

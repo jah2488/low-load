@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><!-- FILL: decision title --></title>
+<style>
+:root{--fg:#1a1a1a;--muted:#6b7280;--bg:#fff;--card:#f7f7f8;--border:#e5e7eb;--accent:#2563eb;--accent-bg:#eff6ff;--ok:#16a34a;--warn:#d97706;--err:#dc2626}
+@media(prefers-color-scheme:dark){:root{--fg:#e7e7e9;--muted:#9ca3af;--bg:#16171a;--card:#1f2125;--border:#2d2f36;--accent:#60a5fa;--accent-bg:#1e293b;--ok:#4ade80;--warn:#fbbf24;--err:#f87171}}
+*{box-sizing:border-box}
+body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--fg);background:var(--bg);max-width:680px;margin:0 auto;padding:3rem 1.5rem 5rem}
+h1{font-size:1.5rem;margin:0 0 .25rem}
+.meta{color:var(--muted);font-size:.85rem;margin:0 0 1.5rem}
+h2{font-size:1.05rem;margin:2rem 0 .5rem}
+p{margin:.5rem 0}
+.tldr{background:var(--accent-bg);border-left:3px solid var(--accent);padding:1.1rem 1.25rem;border-radius:0 8px 8px 0;margin:0 0 1.5rem}
+.tldr strong{font-size:1.05rem}
+details{border:1px solid var(--border);border-radius:8px;padding:.6rem .85rem;margin:.5rem 0;background:var(--card)}
+summary{cursor:pointer;font-weight:600}
+summary::marker{color:var(--muted)}
+ul{margin:.4rem 0;padding-left:1.2rem}li{margin:.2rem 0}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.err{color:var(--err)}
+code{background:var(--card);padding:.1em .35em;border-radius:4px;font-size:.9em}
+</style>
+</head>
+<body>
+<h1><!-- FILL: decision title --></h1>
+<p class="meta"><!-- FILL: context / date --></p>
+
+<div class="tldr"><strong><!-- FILL: the decision, stated plainly --></strong><br><!-- FILL: the one-line why --></div>
+
+<details open>
+  <summary>Why</summary>
+  <ul><!-- FILL: 2-4 reasons, keyword-first --></ul>
+</details>
+
+<details>
+  <summary>Tradeoffs &amp; what we're giving up</summary>
+  <ul><!-- FILL: honest costs of this choice --></ul>
+</details>
+
+<details>
+  <summary>Alternatives considered</summary>
+  <ul><!-- FILL: options not taken and why --></ul>
+</details>
+
+<h2 class="warn">Verify</h2>
+<p><!-- FILL: what should be checked / what would reverse this --></p>
+</body>
+</html>

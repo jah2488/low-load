@@ -1,0 +1,25 @@
+{
+  "outputStyle": "Low Load",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "afplay /System/Library/Sounds/Submarine.aiff" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff" }
+        ]
+      }
+    ]
+  }
+}
