@@ -99,6 +99,19 @@ Not into the one-liner? Each piece is a plain file:
 - For sound cues and flint, merge the relevant keys from `claude/settings.snippet.json`.
 - For the terminal theme, see the files under `terminal/`.
 
+## More for Claude Code
+
+- [**shutdown**](https://safe-to-shutdown.netlify.app): graceful end-of-session cleanup.
+  Saves what dies with the context, makes git safe, then says "safe to shutdown".
+- [**flint**](https://github.com/jah2488/flint): one mode that makes Claude build less,
+  say less, and claim less.
+- [**why**](https://github.com/jah2488/why): code archaeology. Recover the full history
+  and intent behind a piece of code.
+- [**tend**](https://github.com/jah2488/tend): keep every Claude Code session in view.
+- [**eng-audit**](https://github.com/jah2488/eng-audit) and
+  [**ultravalidate**](https://github.com/jah2488/ultravalidate): audit changes against your
+  engineering principles, and refute a result before you trust it.
+
 ## License
 
 MIT. Built by [@jah2488](https://github.com/jah2488).
